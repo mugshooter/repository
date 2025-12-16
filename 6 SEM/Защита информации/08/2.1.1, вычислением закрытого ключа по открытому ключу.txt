@@ -1,0 +1,31 @@
+> with(numtheory);               # Подключаем пакет для работы с теорией чисел
+> with(RandomTools);             # Подключаем пакет для генерации случайных чисел
+
+> q1 := nextprime(Generate(integer(range = 3 .. 10^15)));  # Генерация первого простого q1
+> q2 := nextprime(Generate(integer(range = 3 .. 10^15)));  # Генерация второго простого q2
+> rB := q1 * q2;                 # Модуль rB
+
+> e := nextprime(Generate(integer(range = 3 .. 10^15)));  # Генерация экспоненты e
+> while igcd(e, phB) <> 1 do      
+>     e := nextprime(Generate(integer(range = 3 .. 10^15)));
+> end do;
+
+> e;                             # Вывод e
+
+> m1 := Generate(integer(range = 10 .. 10^15)) mod rB;  # Случайное сообщение m1
+
+> st := time();                  # Время начала факторизации
+> s := ifactors(rB);             # Факторизация rB
+> time() - st;                   # Время факторизации
+
+> p1 := s[2][1][1];              # Извлечение p1
+> p2 := s[2][2][1];              # Извлечение p2
+
+> phb := phi(p1) * phi(p2);      # Вычисление φ(rB)
+
+> d := (e &^ (phi(phb) - 1)) mod phb;  # Вычисление d ≡ e⁻¹ mod φ(rB)
+
+> phb - phB;                     
+> d * e mod phb;                 # Проверка корректности обратной экспоненты
+
+> NULL;                          # Завершение

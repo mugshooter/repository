@@ -1,0 +1,71 @@
+> # Домашняя работа атаки
+> 
+> # Атака с использованием общего модуля
+> 
+> #  Васильева Е.Д, 2.1 
+> with(numtheory):
+> with(RandomTools):
+> 
+> # Задание общего модуля для группы людей
+> 
+> p:= nextprime(Generate(integer(range=3..10^5)));
+> q:= nextprime(Generate(integer(range=3..10^5)));
+> 
+> n:= p*q;
+> phN:= (p-1)*(q-1);
+> 
+> # генерация открытого ключа Алисы
+> 
+> eA:= nextprime(Generate(integer(range=3..10^5))):
+> while igcd(eA, phN)<>1 do
+> eA:= nextprime(Generate(integer(range=3..10^5))) end do:
+> eA;
+> 
+> # генерация открытого ключа Боба
+> 
+> eB:= nextprime(Generate(integer(range=3..10^5))):
+> while igcd(eB, phN)<>1 do
+> eB:= nextprime(Generate(integer(range=3..10^5))) end do:
+> eB;
+> 
+> # Алиса и Боб посылают друг другу одинаковое сообщение
+> 
+> m:= Generate(integer(range=3..10^5)) mod n;
+> 
+> # шифротексты, доступные Еве
+> c1:= m&^eB mod n;
+> c2:= m&^eA mod n;
+> 
+> # решение диафантового уравнения с помощью isolve
+> # задание значения встроенной переменной _Z1, чтобы получить
+> # числовые значения x и y
+> 
+> x:='x': 
+> y:='y':
+> _Z1:= 1: s:=isolve(eB*x+eA*y=1): assign(s): x:=x; y:=y; #решение ур-ий в целых числах
+> 
+> # Проверка решения уравнения
+> eB*x+eA*y=1;
+
+> if y<0 then
+> p:= x:
+> x:=y;
+> y:=p;
+> p:= c1:
+> c1:=c2:
+> c2:=p:
+> end if;
+> 
+> d1:= c1&^(abs(x)) mod n;
+> dn1:='dn1': t:= msolve(d1*dn1=1,n): assign(t): dn1; # решение сравнений по модулю
+> 
+> # Проверка решения уравнения
+> d1*dn1 mod n;
+
+> d2:= c2&^y mod n;
+> 
+> m1:=dn1*d2 mod n;
+> 
+> # Проверка
+> 
+> m1-m; 

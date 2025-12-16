@@ -1,0 +1,22 @@
+_model: page
+---
+title: Веб-проектирование
+---
+body:
+
+<br> 
+<a href="https://github.com/fuquyoma/Web">
+          <button class="btn btn-primary">ЛР№1 - Заготовка для портфолио </button> 
+    </a>
+<br><br>
+ <a href="https://adamen-blog.vercel.app/post/0">
+          <button class="btn btn-primary">ЛР№2 - Кодирование клиентского кода для работы со сторонними сервисами</button> 
+    </a>
+<br><br>
+ <a href="https://adamen-blog.vercel.app/post/1">
+          <button class="btn btn-primary">ЛР№3 - Пользовательские компоненты</button> 
+    </a>
+<br><br>
+ <a href="https://github.com/fuquyoma/Web-P-LR4">
+          <button class="btn btn-primary">ЛР№4 - Строки </button> 
+    </a>

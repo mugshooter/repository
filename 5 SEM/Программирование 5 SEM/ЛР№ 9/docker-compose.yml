@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=ссылка
+      - SECRET_KEY=your_secret_key
+    depends_on:
+      - postgres
+
+
+volumes:
+  postgres_data:

@@ -1,0 +1,1051 @@
+A magic square of order n is an arrangement of n^2 numbers, usually
+distinct integers, in a square, such that the n numbers in all rows,
+all columns, and both diagonals sum to the same constant. A magic
+square contains the integers from 1 to n^2.
+The constant sum in every row, column and diagonal is called the magic
+constant or magic sum, M. The magic constant of a normal magic square
+depends only on n and has the following value: 
+M = n (n^2 + 1) / 2.
+Examples: 
+ 
+
+Magic Square of order 3:
+-----------------------
+ 2   7   6
+ 9   5   1
+ 4   3   8
+
+Magic Square of order 4:
+-----------------------
+16 2 3 13 
+5 11 10 8 
+9  7 6 12 
+4 14 15 1 
+
+Magic Square of order 8:
+-----------------------
+64 63  3  4  5  6 58 57 
+56 55 11 12 13 14 50 49 
+17 18 46 45 44 43 23 24 
+25 26 38 37 36 35 31 32 
+33 34 30 29 28 27 39 40 
+41 42 22 21 20 19 47 48 
+16 15 51 52 53 54 10 9 
+8  7  59 60 61 62 2  1 
+
+A bit of Theory: 
+Magic squares are divided into three major categories depending upon
+order of square. 
+1) Odd order Magic Square. Example: 3,5,7,: (2*n +1) 
+2) Doubly-even order Magic Square. Example : 4,8,12,16,.. (4*n) 
+3) Singly-even order Magic Square. Example : 6,10,14,18,..(4*n +2)
+ 
+
+Algorithm for Doubly-even Magic Square : 
+ 
+
+    define an 2-D array of order n*n
+    // fill array with their index-counting 
+    // starting from 1
+    for ( i = 0; i<n; i++)
+    {
+        for ( j = 0; j<n; j++)
+            // filling array with its count value 
+            // starting from 1;
+            arr[i][j] = (n*i) + j + 1;        
+    }
+
+    // change value of Array elements 
+    // at fix location as per rule 
+    // (n*n+1)-arr[i][j]
+    // Top Left corner of Matrix 
+   // (order (n/4)*(n/4))
+    for ( i = 0; i<n/4; i++)
+    {
+        for ( j = 0; j<n/4; j++)
+            arr[i][j] = (n*n + 1) - arr[i][j];
+    }
+
+    // Top Right corner of Matrix 
+    // (order (n/4)*(n/4))
+    for ( i = 0; i< n/4; i++)
+    {
+        for ( j = 3* (n/4); j<n; j++)
+            arr[i][j] = (n*n + 1) - arr[i][j];
+    }
+
+    // Bottom Left corner of Matrix 
+    // (order (n/4)*(n/4))
+    for ( i = 3* n/4; i<n; i++)
+    {
+        for ( j = 0; j<n/4; j++)
+            arr[i][j] = (n*n + 1) - arr[i][j];
+    }
+ 
+    // Bottom Right corner of Matrix 
+   // (order (n/4)*(n/4))
+    for ( i = 3* n/4; i<n; i++)
+    {
+        for ( j = 3* n/4; j<n; j++)
+            arr[i][j] = (n*n + 1) - arr[i][j];
+    }
+ 
+    // Centre of Matrix (order (n/2)*(n/2))
+    for ( i = n/4; i<3* n/4; i++)
+    {
+        for ( j = n/4; j<3* n/4; j++)
+            arr[i][j] = (n*n + 1) - arr[i][j];
+    } 
+ 
+
+Explanation with an example:(order 4)
+1) Define array of order 4*4 and fill it with its count value as: 
+ 
+
+dd1
+
+2) Change value of top-left corner matrix of order (1*1): 
+ 
+
+dd2
+
+3) Change value of top-right corner matrix of order (1*1): 
+ 
+
+dd3
+
+4) Change value of bottom-left corner matrix of order (1*1): 
+ 
+
+dd4
+
+5) Change value of bottom-right corner matrix of order (1*1): 
+ 
+
+dd5
+
+6) Change value of centre matrix of order (2*2): 
+ 
+
+ddf
+
+Implementation for Doubly-even Magic Square: 
+ 
+ 
+
+// C++ Program to print Magic square  
+// of Doubly even order  
+#include<iostream>  
+using namespace std;  
+  
+// Function for calculating Magic square  
+void doublyEven( int n )  
+{  
+    int arr[n][n], i, j;  
+  
+    // filling matrix with its count value  
+    // starting from 1;  
+    for ( i = 0; i < n; i++)  
+        for ( j = 0; j < n; j++)  
+            arr[i][j] = (n*i) + j + 1;  
+      
+    // change value of Array elements  
+    // at fix location as per rule  
+    // (n*n+1)-arr[i][j]  
+    // Top Left corner of Matrix  
+    // (order (n/4)*(n/4))  
+    for ( i = 0; i < n/4; i++)  
+        for ( j = 0; j < n/4; j++)  
+            arr[i][j] = (n*n + 1) - arr[i][j];  
+      
+    // Top Right corner of Matrix  
+    // (order (n/4)*(n/4))  
+    for ( i = 0; i < n/4; i++)  
+        for ( j = 3 * (n/4); j < n; j++)  
+            arr[i][j] = (n*n + 1) - arr[i][j];  
+      
+    // Bottom Left corner of Matrix  
+    // (order (n/4)*(n/4))  
+    for ( i = 3 * n/4; i < n; i++)  
+        for ( j = 0; j < n/4; j++)  
+            arr[i][j] = (n*n+1) - arr[i][j];  
+      
+    // Bottom Right corner of Matrix  
+    // (order (n/4)*(n/4))  
+    for ( i = 3 * n/4; i < n; i++)  
+        for ( j = 3 * n/4; j < n; j++)  
+            arr[i][j] = (n*n + 1) - arr[i][j];  
+      
+    // Centre of Matrix (order (n/2)*(n/2))  
+    for ( i = n/4; i < 3 * n/4; i++)  
+        for ( j = n/4; j < 3 * n/4; j++)  
+            arr[i][j] = (n*n + 1) - arr[i][j];  
+  
+    // Printing the magic-square  
+    for (i = 0; i < n; i++)  
+    {  
+        for ( j = 0; j < n; j++)  
+            cout << arr[i][j] << " ";  
+        cout << "\n";  
+    }  
+}  
+  
+// driver program  
+int main()  
+{  
+    int n=8;  
+    doublyEven(n); //Function call  
+    return 0;  
+}  
+
+Output: 
+ 
+
+64   63   3    4    5    6    58   57   
+56   55   11   12   13   14   50   49   
+17   18   46   45   44   43   23   24   
+25   26   38   37   36   35   31   32   
+33   34   30   29   28   27   39   40   
+41   42   22   21   20   19   47   48   
+16   15   51   52   53   54   10   9   
+8    7    59   60   61   62   2   1 
+
+                     2
+Time complexity : O(n )
+                    2          2
+Auxiliary Space: O(n ). since n  extra space has been taken.
+
+Reference: http://www.1728.org/magicsq2.html
+
+***********************************************************
+A magic square of order n is an arrangement of n2 numbers, usually
+distinct integers, in a square, such that the n numbers in all rows,
+all columns, and both diagonals sum to the same constant.
+   A magic square contains the integers from 1 to n2. 
+The constant sum in every row, column and diagonal are called
+the magic constant or magic sum, M. The magic constant of a normal magic
+square depends only on n and has the following value: 
+M = n(n2+1)/2
+
+For normal magic squares of order n = 3, 4, 5, ...,
+the magic constants are: 15, 34, 65, 111, 175, 260, ... 
+
+In this post, we will discuss how programmatically we can generate
+a magic square of size n.
+   This approach only takes into account odd values of n and doesn't
+work for even numbers.
+   Before we go further, consider the below examples:
+
+Magic Square of size 3
+-----------------------
+  2   7   6
+  9   5   1
+  4   3   8
+Sum in each row & each column = 3*(32+1)/2 = 15
+Magic Square of size 5
+----------------------
+  9   3  22  16  15
+  2  21  20  14   8
+ 25  19  13   7   1
+ 18  12   6   5  24
+ 11  10   4  23  17
+Sum in each row & each column = 5*(52+1)/2 = 65
+Magic Square of size 7
+----------------------
+ 20  12   4  45  37  29  28
+ 11   3  44  36  35  27  19
+  2  43  42  34  26  18  10
+ 49  41  33  25  17   9   1
+ 40  32  24  16   8   7  48
+ 31  23  15  14   6  47  39
+ 22  21  13   5  46  38  30
+Sum in each row & each column = 7*(72+1)/2 = 175
+
+Did you find any pattern in which the numbers are stored? 
+
+In any magic square, the first number i.e. 1 is stored at position (n/2, n-1). Let this position be (i,j). The next number is stored at position (i-1, j+1) where we can consider each row & column as circular array i.e. they wrap around.
+
+Three conditions hold:
+
+    The position of next number is calculated by decrementing row number of the previous number by 1, and incrementing the column number of the previous number by 1. At any time, if the calculated row position becomes -1, it will wrap around to n-1. Similarly, if the calculated column position becomes n, it will wrap around to 0.
+    If the magic square already contains a number at the calculated position, calculated column position will be decremented by 2, and calculated row position will be incremented by 1.
+    If the calculated row position is -1 & calculated column position is n, the new position would be: (0, n-2). 
+
+Example:
+Magic Square of size 3
+----------------------
+ 2  7  6
+ 9  5  1
+ 4  3  8 
+Steps:
+1. position of number 1 = (3/2, 3-1) = (1, 2)
+2. position of number 2 = (1-1, 2+1) = (0, 0)
+3. position of number 3 = (0-1, 0+1) = (3-1, 1) = (2, 1)
+4. position of number 4 = (2-1, 1+1) = (1, 2)
+   Since, at this position, 1 is there. So, apply condition 2.
+   new position=(1+1,2-2)=(2,0)
+5. position of number 5=(2-1,0+1)=(1,1)
+6. position of number 6=(1-1,1+1)=(0,2)
+7. position of number 7 = (0-1, 2+1) = (-1,3) // this is tricky, see condition 3 
+   new position = (0, 3-2) = (0,1)
+8. position of number 8=(0-1,1+1)=(-1,2)=(2,2) //wrap around
+9. position of number 9=(2-1,2+1)=(1,3)=(1,0) //wrap around
+
+
+Based on the above approach, the following is the working code: 
+
+// C++ program to generate odd sized magic squares
+#include <bits/stdc++.h>
+using namespace std;
+
+// A function to generate odd sized magic squares
+void generateSquare(int n)
+{
+    int magicSquare[n][n];
+
+    // set all slots as 0
+    memset(magicSquare, 0, sizeof(magicSquare));
+
+    // Initialize position for 1
+    int i = n / 2;
+    int j = n - 1;
+
+    // One by one put all values in magic square
+    for (int num = 1; num <= n * n;) {
+        if (i == -1 && j == n) // 3rd condition
+        {
+            j = n - 2;
+            i = 0;
+        }
+        else {
+            // 1st condition helper if next number
+            // goes to out of square's right side
+            if (j == n)
+                j = 0;
+
+            // 1st condition helper if next number
+            // is goes to out of square's upper side
+            if (i < 0)
+                i = n - 1;
+        }
+        if (magicSquare[i][j]) // 2nd condition
+        {
+            j -= 2;
+            i++;
+            continue;
+        }
+        else
+            magicSquare[i][j] = num++; // set number
+
+        j++;
+        i--; // 1st condition
+    }
+
+    // Print magic square
+    cout << "The Magic Square for n=" << n
+         << ":\nSum of "
+            "each row or column "
+         << n * (n * n + 1) / 2 << ":\n\n";
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++)
+
+            // setw(7) is used so that the matrix gets
+            // printed in a proper square fashion.
+            cout << setw(4) << magicSquare[i][j] << " ";
+        cout << endl;
+    }
+}
+
+// Driver code
+int main()
+{
+
+    // Works only when n is odd
+    int n = 7;
+    generateSquare(n);
+    return 0;
+}
+
+// This code is contributed by rathbhupendra
+
+// C program to generate odd sized magic squares
+#include <stdio.h>
+#include <string.h>
+
+// A function to generate odd sized magic squares
+void generateSquare(int n)
+{
+    int magicSquare[n][n];
+
+    // set all slots as 0
+    memset(magicSquare, 0, sizeof(magicSquare));
+
+    // Initialize position for 1
+    int i = n / 2;
+    int j = n - 1;
+
+    // One by one put all values in magic square
+    for (int num = 1; num <= n * n;) {
+        if (i == -1 && j == n) // 3rd condition
+        {
+            j = n - 2;
+            i = 0;
+        }
+        else {
+            // 1st condition helper if next number
+            // goes to out of square's right side
+            if (j == n)
+                j = 0;
+
+            // 1st condition helper if next number
+            // is goes to out of square's upper side
+            if (i < 0)
+                i = n - 1;
+        }
+        if (magicSquare[i][j]) // 2nd condition
+        {
+            j -= 2;
+            i++;
+            continue;
+        }
+        else
+            magicSquare[i][j] = num++; // set number
+
+        j++;
+        i--; // 1st condition
+    }
+
+    // Print magic square
+    printf("The Magic Square for n=%d:\nSum of "
+           "each row or column %d:\n\n",
+           n, n * (n * n + 1) / 2);
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++)
+            printf("%3d ", magicSquare[i][j]);
+        printf("\n");
+    }
+}
+
+// Driver program to test above function
+int main()
+{
+    int n = 7; // Works only when n is odd
+    generateSquare(n);
+    return 0;
+}
+
+// Java program to generate odd sized magic squares
+import java.io.*;
+
+class GFG {
+    // Function to generate odd sized magic squares
+    static void generateSquare(int n)
+    {
+        int[][] magicSquare = new int[n][n];
+
+        // Initialize position for 1
+        int i = n / 2;
+        int j = n - 1;
+
+        // One by one put all values in magic square
+        for (int num = 1; num <= n * n;) {
+            if (i == -1 && j == n) // 3rd condition
+            {
+                j = n - 2;
+                i = 0;
+            }
+            else {
+                // 1st condition helper if next number
+                // goes to out of square's right side
+                if (j == n)
+                    j = 0;
+
+                // 1st condition helper if next number is
+                // goes to out of square's upper side
+                if (i < 0)
+                    i = n - 1;
+            }
+
+            // 2nd condition
+            if (magicSquare[i][j] != 0) {
+                j -= 2;
+                i++;
+                continue;
+            }
+            else
+                // set number
+                magicSquare[i][j] = num++;
+
+            // 1st condition
+            j++;
+            i--;
+        }
+
+        // print magic square
+        System.out.println("The Magic Square for " + n
+                           + ":");
+        System.out.println("Sum of each row or column "
+                           + n * (n * n + 1) / 2 + ":");
+        for (i = 0; i < n; i++) {
+            for (j = 0; j < n; j++)
+                System.out.print(magicSquare[i][j] + " ");
+            System.out.println();
+        }
+    }
+
+    // driver program
+    public static void main(String[] args)
+    {
+        // Works only when n is odd
+        int n = 7;
+        generateSquare(n);
+    }
+}
+
+// Contributed by Pramod Kumar
+
+# Python program to generate
+# odd sized magic squares
+# A function to generate odd
+# sized magic squares
+
+
+def generateSquare(n):
+
+    # 2-D array with all
+    # slots set to 0
+    magicSquare = [[0 for x in range(n)]
+                   for y in range(n)]
+
+    # initialize position of 1
+    i = n // 2
+    j = n - 1
+
+    # Fill the magic square
+    # by placing values
+    num = 1
+    while num <= (n * n):
+        if i == -1 and j == n:  # 3rd condition
+            j = n - 2
+            i = 0
+        else:
+
+            # next number goes out of
+            # right side of square
+            if j == n:
+                j = 0
+
+            # next number goes
+            # out of upper side
+            if i < 0:
+                i = n - 1
+
+        if magicSquare[int(i)][int(j)]:  # 2nd condition
+            j = j - 2
+            i = i + 1
+            continue
+        else:
+            magicSquare[int(i)][int(j)] = num
+            num = num + 1
+
+        j = j + 1
+        i = i - 1  # 1st condition
+
+    # Printing magic square
+    print("Magic Square for n =", n)
+    print("Sum of each row or column",
+          n * (n * n + 1) // 2, "\n")
+
+    for i in range(0, n):
+        for j in range(0, n):
+            print('%2d ' % (magicSquare[i][j]),
+                  end='')
+
+            # To display output
+            # in matrix form
+            if j == n - 1:
+                print()
+
+# Driver Code
+
+
+# Works only when n is odd
+n = 7
+generateSquare(n)
+
+# This code is contributed
+# by Harshit Agrawal
+
+// C# program to generate odd sized magic squares
+using System;
+
+class GFG {
+
+    // Function to generate odd sized magic squares
+    static void generateSquare(int n)
+    {
+        int[, ] magicSquare = new int[n, n];
+
+        // Initialize position for 1
+        int i = n / 2;
+        int j = n - 1;
+
+        // One by one put all values in magic square
+        for (int num = 1; num <= n * n;) {
+            if (i == -1 && j == n) // 3rd condition
+            {
+                j = n - 2;
+                i = 0;
+            }
+            else {
+                // 1st condition helper if next number
+                // goes to out of square's right side
+                if (j == n)
+                    j = 0;
+
+                // 1st condition helper if next number is
+                // goes to out of square's upper side
+                if (i < 0)
+                    i = n - 1;
+            }
+
+            // 2nd condition
+            if (magicSquare[i, j] != 0) {
+                j -= 2;
+                i++;
+                continue;
+            }
+            else
+                // set number
+                magicSquare[i, j] = num++;
+
+            // 1st condition
+            j++;
+            i--;
+        }
+
+        // print magic square
+        Console.WriteLine("The Magic Square for " + n
+                          + ":");
+        Console.WriteLine("Sum of each row or column "
+                          + n * (n * n + 1) / 2 + ":");
+
+        for (i = 0; i < n; i++) {
+            for (j = 0; j < n; j++)
+                Console.Write(magicSquare[i, j] + " ");
+            Console.WriteLine();
+        }
+    }
+
+    // driver program
+    public static void Main()
+    {
+
+        // Works only when n is odd
+        int n = 7;
+
+        generateSquare(n);
+    }
+}
+
+// This code is contributed by Sam007.
+
+<script>
+
+// javascript program to generate odd sized magic squares
+   // Function to generate odd sized magic squares
+
+function generateSquare(n)
+{
+    magicSquare = Array(n).fill(0).map(x => Array(n).fill(0)); 
+
+    // Initialize position for 1
+    var i = parseInt(n / 2);
+    var j = n - 1;
+
+    // One by one put all values in magic square
+    for (num = 1; num <= n * n;) {
+        if (i == -1 && j == n) // 3rd condition
+        {
+            j = n - 2;
+            i = 0;
+        }
+        else {
+            // 1st condition helper if next number
+            // goes to out of square's right side
+            if (j == n)
+                j = 0;
+
+            // 1st condition helper if next number is
+            // goes to out of square's upper side
+            if (i < 0)
+                i = n - 1;
+        }
+
+        // 2nd condition
+        if (magicSquare[i][j] != 0) {
+            j -= 2;
+            i++;
+            continue;
+        }
+        else
+            // set number
+            magicSquare[i][j] = num++;
+
+        // 1st condition
+        j++;
+        i--;
+    }
+
+    // print magic square
+    document.write("The Magic Square for " + n
+                       + ":<br>");
+    document.write("Sum of each row or column "
+                       + parseInt(n * (n * n + 1) / 2) + ":<br>");
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++)
+            document.write(magicSquare[i][j] + " ");
+        document.write("<br>");
+    }
+}
+
+// driver program
+ // Works only when n is odd
+var n = 7;
+generateSquare(n);
+
+// This code is contributed by 29AjayKumar 
+
+</script>
+
+<?php
+// php program to generate odd sized
+// magic squares
+
+// A function to generate odd sized 
+// magic squares
+function generateSquare($n)
+{
+
+    // set all slots as 0
+    $magicSquare;
+    for ($i = 0; $i < $n; $i++)
+        for ($j = 0; $j < $n; $j++)
+            $magicSquare[$i][$j] = 0;
+
+    // Initialize position for 1
+    $i = (int)$n / 2;
+    $j = $n - 1;
+
+    // One by one put all values in
+    // magic square
+    for ($num = 1; $num <= $n * $n; )
+    {
+        
+        // 3rd condition
+        if ($i == -1 && $j == $n) 
+        {
+            $j = $n-2;
+            $i = 0;
+        }
+        else
+        {
+            // 1st condition helper if 
+            // next number goes to out 
+            // of square's right side
+            if ($j == $n)
+                $j = 0;
+
+            // 1st condition helper if
+            // next number is goes to 
+            // out of square's upper 
+            // side
+            if ($i < 0)
+                $i = $n-1;
+        }
+        
+        // 2nd condition
+        if ($magicSquare[$i][$j]) 
+        {
+            $j -= 2;
+            $i++;
+            continue;
+        }
+        else
+        
+            // set number
+            $magicSquare[$i][$j] = $num++; 
+
+        // 1st condition
+        $j++; $i--; 
+    }
+
+    // Print magic square
+    echo "The Magic Square for n = " . $n
+        . ":\nSum of each row or column "
+        . $n * ($n * $n + 1) / 2;
+        
+    echo "\n\n";
+    for ($i = 0; $i < $n; $i++)
+    {
+        for ($j = 0; $j < $n; $j++)
+            echo $magicSquare[$i][$j] . " ";
+        echo "\n";
+    }
+}
+
+// Driver program to test above function
+
+// Works only when n is odd
+$n = 7; 
+generateSquare ($n);
+    
+// This code is contributed by mits.
+?>
+
+
+Output
+
+The Magic Square for n=7:
+Sum of each row or column 175:
+
+  20   12    4   45   37   29   28 
+  11    3   44   36   35   27   19 
+   2   43   42   34   26   18   10 
+  49   41   33   25   17    9    1 
+  40   32   24   16    8    7   48 
+  31   23   15   14    6   47   39 
+  22   21   13    5   46   38   30 
+
+Time Complexity: O(n2)
+Auxiliary Space: O(n2)
+
+NOTE: This approach works only for odd values of n.
+Vedic Mathematics Approach:
+
+This approach is taken from logic given in vedic mathematics. (Very simple to understand)
+
+Note: Only work with ODD values of n.
+
+Approach:
+
+    Start from the cell which is at middle of last column of square.
+    Place the number 1.
+    Move to the cell which is at top-right position.
+    If it is out of square limits then take modulo with n.
+    Move to the cell which comes after taking modulo.
+    When we reach multiple of n, move to the left cell.
+    If it is out of square limits then take modulo with n.
+    Put the next number and repeat the above steps.
+
+Working code:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  int n = 7;
+  // Make vector to store numbers of square
+  vector<vector<int>> magicSquare(n, vector<int>(n, -1));
+  // Indices for element to be inserted
+  int x = (n / 2), y = n - 1;
+  // Loop till n ^ 2 times
+  for(int i=1; i<=n*n; i++) {
+    // Put the current element at (x, y)
+    magicSquare[x][y] = i;
+    
+    if(i % n == 0) {
+      // If we get multiple of n, move left
+      y--;
+    } else {
+      // Else, move top-right 
+      x--; y++;
+    }
+    // Take modulo to avoid out of bounds
+    x += n; x %= n;
+    y += n; y %= n;
+  }
+  
+  // Print magic square
+  for(int i=0; i<n; i++) {
+    for(int j=0; j<n; j++) {
+      cout<< magicSquare[i][j]<< " ";
+    }
+    cout<< endl;
+  }
+
+  return 0;
+}
+// The code is contriburted by Abhay Parihar
+
+import java.util.Arrays;
+
+public class GFG {
+    public static void main(String[] args) {
+        int n = 7;
+        // Create a 2D array to store numbers of the magic square
+        int[][] magicSquare = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            Arrays.fill(magicSquare[i], -1);
+        }
+        
+        // Indices for element to be inserted
+        int x = n / 2, y = n - 1;
+        
+        // Loop till n ^ 2 times
+        for (int i = 1; i <= n * n; i++) {
+            // Put the current element at (x, y)
+            magicSquare[x][y] = i;
+            
+            if (i % n == 0) {
+                // If we get multiple of n, move left
+                y--;
+            } else {
+                // Else, move top-right
+                x--; y++;
+            }
+            // Take modulo to avoid out of bounds
+            x = (x + n) % n;
+            y = (y + n) % n;
+        }
+        
+        // Print magic square
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(magicSquare[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+n = 7
+
+# Create a 2D list to store the magic square
+magicSquare = [[-1 for _ in range(n)] for _ in range(n)]
+
+# Initialize indices for the first element
+x, y = n / 2, n - 1
+
+# Loop to fill the magic square
+for i in range(1, n * n + 1):
+    # Place the current element at (x, y)
+    magicSquare[x][y] = i
+
+    if i % n == 0:
+        # If the element is a multiple of n, move left
+        y -= 1
+    else:
+        # Otherwise, move top-right
+        x -= 1
+        y += 1
+
+    # Apply modulo to avoid going out of bounds
+    x = (x + n) % n
+    y = (y + n) % n
+
+# Print the magic square
+for i in range(n):
+    for j in range(n):
+        print magicSquare[i][j],
+    print
+
+// C# code for mentioned solution
+
+using System;
+
+class Program {
+    static void Main()
+    {
+        int n = 7;
+        // Make array to store numbers of square
+        int[, ] magicSquare = new int[n, n];
+        // Indices for element to be inserted
+        int x = (n / 2), y = n - 1;
+        // Loop till n ^ 2 times
+        for (int i = 1; i <= n * n; i++) {
+            // Put the current element at (x, y)
+            magicSquare[x, y] = i;
+
+            if (i % n == 0) {
+                // If we get multiple of n, move left
+                y--;
+            }
+            else {
+                // Else, move top-right
+                x--;
+                y++;
+            }
+            // Take modulo to avoid out of bounds
+            x = (x + n) % n;
+            y = (y + n) % n;
+        }
+
+        // Print magic square
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                Console.Write(magicSquare[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+function generateMagicSquare(n) {
+    // Create a 2D array to store the magic square
+    const magicSquare = new Array(n).fill(0).map(() => new Array(n).fill(0));
+
+    // Initialize the indices for the first number
+    let x = Math.floor(n / 2);
+    let y = n - 1;
+
+    // Loop to fill the magic square with numbers from 1 to n^2
+    for (let i = 1; i <= n * n; i++) {
+        // Set the current element to the current number
+        magicSquare[x][y] = i;
+
+        // Check if i is a multiple of n
+        if (i % n === 0) {
+            // Move left
+            y--;
+        } else {
+            // Move top-right
+            x--;
+            y++;
+        }
+
+        // Take modulo to avoid out-of-bounds
+        x = (x + n) % n;
+        y = (y + n) % n;
+    }
+
+    return magicSquare;
+}
+
+function printMagicSquare(magicSquare) {
+    // Print the magic square
+    for (let i = 0; i < magicSquare.length; i++) {
+        console.log(magicSquare[i].join(' '));
+    }
+}
+
+// Define the order of the magic square
+const n = 7;
+
+// Generate and print the magic square
+const magicSquare = generateMagicSquare(n);
+printMagicSquare(magicSquare);
+
+Time Complexity: O(n^2)
+
+Space Complexity: O(n^2)
+
+Output:
+20 12 4 45 37 29 28 
+11 3 44 36 35 27 19 
+2 43 42 34 26 18 10 
+49 41 33 25 17 9 1 
+40 32 24 16 8 7 48 
+31 23 15 14 6 47 39 
+22 21 13 5 46 38 30 
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Image</title>
+</head>
+<body>
+    <h1>Генерация изображения</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <form action="/makeimage" method="post">
+        <label for="width">Ширина:</label>
+        <input type="text" id="width" name="width"><br><br>
+        <label for="height">Высота:</label>
+        <input type="text" id="height" name="height"><br><br>
+        <label for="text">Текст:</label>
+        <input type="text" id="text" name="text"><br><br>
+        <button type="submit">Сгенерировать изображения</button>
+    </form>
+    <br>
+</body>
+</html>

@@ -1,0 +1,2 @@
+ALTER TABLE Элемент1
+ADD COLUMN info VARCHAR(200);

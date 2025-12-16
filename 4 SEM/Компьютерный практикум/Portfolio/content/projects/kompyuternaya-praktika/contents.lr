@@ -1,0 +1,44 @@
+_model: page
+---
+title: Компьютерная практика
+---
+body:
+
+<br> 
+<a href="https://github.com/fuquyoma/fuquyoma.github.io">
+          <button class="btn btn-primary">ЛР№1 - репозиторий сайта портфолио </button> 
+    </a>
+ <a href="https://github.com/fuquyoma/fuquyoma.github.io/blob/main/README.md">
+          <button class="btn btn-primary">ЛР№2</button> 
+    </a>
+ <a href="https://github.com/fuquyoma/CP-LR3">
+          <button class="btn btn-primary">ЛР№3</button> 
+    </a>
+ <a href="https://github.com/fuquyoma/CP-LR4">
+          <button class="btn btn-primary">ЛР№4</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/Gnievnov-Artiem-Ievghienievich-IVT-21LR5-Siervier-1">
+          <button class="btn btn-primary">ЛР№5</button> 
+    </a>
+<br> <br> 
+ <a href="https://replit.com/@gnevnov1996/Gnievnov-Artiem-Ievghienievich-IVT-21LR5-Siervier-2">
+          <button class="btn btn-primary">ЛР№5(Flask)</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/Gnievnov-Artiem-Ievghienievich-IVT-21-LR5-siervier-3-Go">
+          <button class="btn btn-primary">ЛР№5(Go)</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/Gnievnov-Artiem-Ievghienievich-IVT-21-LR5-Siervier-4-PHP">
+          <button class="btn btn-primary">ЛР№5(PHP)</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/Laboratornaia-rabota6#main.py">
+          <button class="btn btn-primary">ЛР№6</button> 
+    </a>
+ <a href="https://github.com/fuquyoma/K-P-LR7">
+          <button class="btn btn-primary">ЛР№7</button> 
+    </a>
+ <a href="https://github.com/fuquyoma/CP-LR8">
+          <button class="btn btn-primary">ЛР№8</button> 
+    </a>
+ <a href="https://github.com/fuquyoma/CP-LR9/tree/main">
+          <button class="btn btn-primary">ЛР№9.1</button> 
+    </a>

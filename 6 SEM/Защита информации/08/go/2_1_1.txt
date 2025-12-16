@@ -1,0 +1,44 @@
+> # Домашняя работа атаки
+> 
+> # вычисление закрытого ключа по открытому
+> 
+
+> #  Васильева Е.Д, 2.1 
+> with(numtheory):
+> with(RandomTools):
+> 
+> # известнен открытый ключ Б
+> 
+> # q1, q2, phB не известны взломщику, в этом коде используются для задания изначального условия 
+> # - известного открытого ключа (rB, e)
+> 
+> q1 := nextprime(Generate(integer(range=3..10^15)));
+> q2 := nextprime(Generate(integer(range=3..10^15)));
+> 
+> 
+> # задание открытого ключа, который известен взломщику и далее действия взломщика
+> 
+> rB := q1*q2;
+> e := nextprime(Generate(integer(range=3..10^15))):
+> while (igcd(e, phB) <> 1) do
+> e := nextprime(Generate(integer(range=3..10^15))) end do:
+> e;
+> 
+> # Перехватывание шифра сообщения
+> 
+> m1 := Generate(integer(range=10..10^15)) mod rB;
+> 
+> # факторизация rB
+> 
+> st:=time(); s:=ifactors(rB); time()-st;
+> p1 := s[2][1][1];
+> p2 := s[2][2][1];
+> 
+> phb := phi(p1)*phi(p2);
+> 
+> d := e&^(phi(phb)-1) mod phb;
+> 
+> # Проверка
+> 
+> phb-phB;
+> (d*e) mod phb;

@@ -1,0 +1,2 @@
+ALTER TABLE Элемент1
+ADD CONSTRAINT un_info UNIQUE(info);

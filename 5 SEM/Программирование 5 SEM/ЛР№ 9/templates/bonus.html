@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonus Level</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Your Bonus Level</h1>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Bonus Level: {{ bonus_data.name }}</h2>
+        <p>Minimum Spendings: {{ bonus_data.min_spendings }}</p>
+        <p>Cashback Percentage: {{ bonus_data.cashback_percentage }}%</p>
+    </main>
+</body>
+</html>

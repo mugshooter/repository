@@ -1,0 +1,26 @@
+> with(numtheory);               # Подключаем пакет для работы с теорией чисел (phi, ifactors и др.)
+> with(RandomTools);             # Подключаем пакет для генерации случайных чисел
+
+> p := nextprime(Generate(integer(range = 3 .. 10^10)));  # Генерируем случайное целое в [3..10^10] и берём следующее простое → p
+> q := nextprime(Generate(integer(range = 3 .. 10^10)));  # Аналогично генерируем второе простое → q
+
+> n := p * q;                    # Вычисляем модуль RSA n = p·q
+> phN := (p - 1) * (q - 1);      # Вычисляем функцию Эйлера φ(n) = (p−1)(q−1)
+
+> e := nextprime(Generate(integer(range = 3 .. 10^10)));  # Генерируем случайную экспоненту и берём следующее простое → e
+> while igcd(e, phN) <> 1 do     # Убеждаемся, что gcd(e, φ(n)) = 1
+>     e := nextprime(Generate(integer(range = 3 .. 10^10)));
+> end do;
+
+> e;                             # Вывод конечного значения публичной экспоненты e
+
+> m := Generate(integer(range = 3 .. 10^5)) mod n;  # Генерируем случайное сообщение m < n
+> c := (m &^ e) mod n;           # Шифруем сообщение: c = m^e mod n
+
+> for x to 10^9 do               # Начинаем поиск x в диапазоне [1..10^9]
+>     for y to 10^9 do if c*(x &^ (-e)) mod n = (y &^ e) mod n then m1 := x*y; (break)*x; end if; end do;
+> end do;
+
+> m1 - m;                        # Проверка: найденное m1 должно совпасть с исходным m
+
+> NULL;                          # Завершаем выполнение без ошибок

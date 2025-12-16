@@ -1,0 +1,8 @@
+CREATE TABLE Book (
+    BookID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(255) NOT NULL,
+    AuthorID INT NOT NULL,
+    Genre VARCHAR(100),
+    UNIQUE (Title),
+    FOREIGN KEY (AuthorID) REFERENCES Author(AuthorID)
+);

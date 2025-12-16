@@ -1,0 +1,18 @@
+title: Об Авторе
+---
+body:
+
+Гневнов Артем Евгеньевич, студент РГПУ имени А. И. Герцена, ИИТТО
+<br> 
+Контакты автора:
+
+<a href="https://t.me/bigtampa">
+  <button class="btn btn-primary">Телеграм</button>
+</a>
+<br><br>
+
+<a href="/about/o-sebe">
+  <button class="btn btn-secondary btn-sm fixed-btn">О себе</button>
+</a>
+
+

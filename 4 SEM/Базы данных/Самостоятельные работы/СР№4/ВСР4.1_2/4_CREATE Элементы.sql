@@ -1,0 +1,6 @@
+CREATE TABLE Элементы (
+    ElementsID INT PRIMARY KEY AUTO_INCREMENT,
+    ElemID INT NOT NULL,
+    Comment TEXT,
+    CONSTRAINT fk1 FOREIGN KEY (ElemID) REFERENCES Элемент(ElemID)
+);

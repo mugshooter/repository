@@ -1,0 +1,30 @@
+_model: page
+---
+title: Программирование (3с)
+---
+body:
+
+ <a href="https://replit.com/@gnevnov1996/LR1-31">
+          <button class="btn btn-primary">ЛР№1.1</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/LR1-32">
+          <button class="btn btn-primary">ЛР№1.2</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/LR2Mnozhiestva-11-10">
+          <button class="btn btn-primary">ЛР№2</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/LR3-1112">
+          <button class="btn btn-primary">ЛР№3</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/LR4">
+          <button class="btn btn-primary">ЛР№4</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/LR5">
+          <button class="btn btn-primary">ЛР№5</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/LR6">
+          <button class="btn btn-primary">ЛР№6</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/LR7">
+          <button class="btn btn-primary">ЛР№7</button> 
+    </a>

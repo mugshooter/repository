@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GLOSSARY>
+  <INFO>
+    <NAME>Глоссарий по GitHub</NAME>
+    <INTRO>Ключевые термины для курса "Работа в GitHub"</INTRO>
+    <INTROFORMAT>1</INTROFORMAT>
+    <ALLOWDUPLICATEDENTRIES>0</ALLOWDUPLICATEDENTRIES>
+    <DISPLAYFORMAT>dictionary</DISPLAYFORMAT>
+    <SHOWSPECIAL>1</SHOWSPECIAL>
+    <SHOWALPHABET>1</SHOWALPHABET>
+    <SHOWALL>1</SHOWALL>
+    <ALLOWCOMMENTS>0</ALLOWCOMMENTS>
+  </INFO>
+  
+  <ENTRIES>
+    <!-- Основные понятия -->
+    <ENTRY>
+      <CONCEPT>Git</CONCEPT>
+      <DEFINITION>Распределенная система контроля версий для отслеживания изменений в коде. Основа работы с GitHub.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <USEDYNALINK>1</USEDYNALINK>
+      <CASESENSITIVE>0</CASESENSITIVE>
+      <FULLMATCH>0</FULLMATCH>
+      <TEACHERENTRY>1</TEACHERENTRY>
+      <CATEGORY>Основные понятия</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>GitHub</CONCEPT>
+      <DEFINITION>Платформа для хостинга IT-проектов и совместной разработки на основе Git.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Основные понятия</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>Репозиторий</CONCEPT>
+      <DEFINITION>Хранилище проекта, содержащее все файлы, историю изменений и метаданные.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Основные понятия</CATEGORY>
+    </ENTRY>
+
+    <!-- Команды -->
+    <ENTRY>
+      <CONCEPT>Коммит (commit)</CONCEPT>
+      <DEFINITION>Фиксация изменений в репозитории с комментарием. Пример: `git commit -m "Обновление документации"`</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Команды</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>Клонирование (clone)</CONCEPT>
+      <DEFINITION>Копирование удаленного репозитория на локальный компьютер. Пример: `git clone https://github.com/user/repo.git`</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Команды</CATEGORY>
+    </ENTRY>
+
+    <!-- Ветвление -->
+    <ENTRY>
+      <CONCEPT>Ветка (branch)</CONCEPT>
+      <DEFINITION>Изолированная линия разработки. Основная ветка - main/master. Пример создания: `git checkout -b new-feature`</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Ветвление</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>Fork</CONCEPT>
+      <DEFINITION>Копия чужого репозитория в ваш аккаунт GitHub для внесения изменений.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Ветвление</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>Pull Request (PR)</CONCEPT>
+      <DEFINITION>Запрос на слияние изменений из вашей ветки в основной проект. Основной инструмент code review.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Ветвление</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>Merge Conflict</CONCEPT>
+      <DEFINITION>Конфликт при автоматическом слиянии версий. Решается ручным редактированием файлов с маркерами `<<<<<<< HEAD`.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Ветвление</CATEGORY>
+    </ENTRY>
+
+    <!-- Инструменты GitHub -->
+    <ENTRY>
+      <CONCEPT>Issues</CONCEPT>
+      <DEFINITION>Система для обсуждения задач, багов и улучшений проекта. Располагается во вкладке "Issues" репозитория.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Инструменты GitHub</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>GitHub Actions</CONCEPT>
+      <DEFINITION>Инструмент CI/CD для автоматизации рабочих процессов: сборка, тестирование и развертывание кода.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Инструменты GitHub</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>Projects</CONCEPT>
+      <DEFINITION>Инструмент для управления задачами по методологиям Kanban или таблицам. Интегрируется с Issues и PR.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Инструменты GitHub</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>Wiki</CONCEPT>
+      <DEFINITION>Встроенная система документации для проекта с поддержкой Markdown.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Инструменты GitHub</CATEGORY>
+    </ENTRY>
+
+    <!-- Дополнительные термины -->
+    <ENTRY>
+      <CONCEPT>.gitignore</CONCEPT>
+      <DEFINITION>Файл для исключения из отслеживания определенных файлов/папок (например, временных файлов или конфиденциальных данных).</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Дополнительно</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>README.md</CONCEPT>
+      <DEFINITION>Основной файл документации проекта в формате Markdown. Отображается на главной странице репозитория.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Дополнительно</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>Gist</CONCEPT>
+      <DEFINITION>Сервис для быстрого обмена фрагментами кода и заметками. Аналог Pastebin от GitHub.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Дополнительно</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>GitHub Pages</CONCEPT>
+      <DEFINITION>Бесплатный хостинг для статических сайтов проектов прямо из репозитория GitHub.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Дополнительно</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>Markdown</CONCEPT>
+      <DEFINITION>Язык разметки для форматирования текста. Используется в README, Issues, комментариях на GitHub.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Дополнительно</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>SSH Key</CONCEPT>
+      <DEFINITION>Криптографический ключ для безопасного подключения к GitHub без ввода пароля.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Дополнительно</CATEGORY>
+    </ENTRY>
+
+    <ENTRY>
+      <CONCEPT>Code Review</CONCEPT>
+      <DEFINITION>Процесс проверки кода перед слиянием. Основной инструмент - Pull Requests.</DEFINITION>
+      <FORMAT>1</FORMAT>
+      <CATEGORY>Дополнительно</CATEGORY>
+    </ENTRY>
+  </ENTRIES>
+  
+  <CATEGORIES>
+    <CATEGORY>
+      <NAME>Основные понятия</NAME>
+      <USEDYNALINK>1</USEDYNALINK>
+    </CATEGORY>
+    <CATEGORY>
+      <NAME>Команды</NAME>
+      <USEDYNALINK>1</USEDYNALINK>
+    </CATEGORY>
+    <CATEGORY>
+      <NAME>Ветвление</NAME>
+      <USEDYNALINK>1</USEDYNALINK>
+    </CATEGORY>
+    <CATEGORY>
+      <NAME>Инструменты GitHub</NAME>
+      <USEDYNALINK>1</USEDYNALINK>
+    </CATEGORY>
+    <CATEGORY>
+      <NAME>Дополнительно</NAME>
+      <USEDYNALINK>1</USEDYNALINK>
+    </CATEGORY>
+  </CATEGORIES>
+</GLOSSARY>

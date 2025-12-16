@@ -1,0 +1,24 @@
+title: Лабораторные работы
+---
+body:
+
+<br>
+ <a href="https://fuquyoma.github.io/projects/kompyuternaya-praktika/">
+          <button class="btn btn-primary">Компьютерная практика</button> 
+    </a>
+ <a href="https://fuquyoma.github.io/projects/servernye-veb-tehnologii/">
+          <button class="btn btn-primary">Серверные веб-технологии</button>
+    </a>
+ <a href="https://fuquyoma.github.io/projects/veb-proektirovanie/">
+          <button class="btn btn-primary">Веб-проектирование</button>
+    </a>
+<br><br>
+ <a href="https://fuquyoma.github.io/projects/programmirovanie-3s/">
+          <button class="btn btn-primary">Программирование (3с)</button> 
+    </a>
+ <a href="https://fuquyoma.github.io/projects/programmirovanie4s/">
+          <button class="btn btn-primary">Программирование (4с)</button> 
+    </a>
+ <a href="https://fuquyoma.github.io/projects/bazy-dannyh/">
+          <button class="btn btn-primary">Базы данных</button> </a>
+

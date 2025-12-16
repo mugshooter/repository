@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<title>Резюме — Go Developer</title>
+<style>
+:root{--accent:#007d9c;--muted:#6b7280;--bg:#f7f7fb;--card:#ffffff}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:#111827;margin:0}
+.container{max-width:900px;margin:36px auto;padding:24px}
+.card{background:var(--card);border-radius:14px;padding:28px;box-shadow:0 6px 20px rgba(15,23,42,0.06)}
+header{display:flex;gap:20px;align-items:center}
+.avatar{width:96px;height:96px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#00b4d8);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:28px}
+h1{margin:0;font-size:22px}
+p.role{margin:4px 0 0;color:var(--muted)}
+.contact{margin-left:auto;text-align:right;font-size:14px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 320px;gap:20px;margin-top:22px}
+.section{margin-bottom:18px}
+h2{font-size:14px;margin:0 0 10px;color:#0f172a}
+.skill{display:flex;justify-content:space-between;align-items:center;margin:8px 0}
+.bar{height:8px;background:#e6e9f2;border-radius:999px;overflow:hidden;width:55%}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#00b4d8)}
+ul{padding-left:18px;margin:8px 0}
+.muted{color:var(--muted);font-size:14px}
+.pill{display:inline-block;background:#e0f7fa;color:#006064;padding:6px 10px;border-radius:999px;font-size:13px;margin:6px 6px 0 0}
+.print-btn{border:0;background:var(--accent);color:white;padding:10px 14px;border-radius:10px;cursor:pointer}
+footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+[contenteditable]{outline:2px dashed transparent;padding:2px}
+[contenteditable]:focus{outline-color:#a5e6f7;background:#fff}
+@media(max-width:880px){.grid{grid-template-columns:1fr}.contact{text-align:left;margin-top:12px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="card">
+<header>
+<div>
+<h1 contenteditable="true">Go Developer — Гневнов Артем Евгеньевич</h1>
+<p class="role" contenteditable="true">Студент, РГПУ им. Герцена — Информатика и вычислительная техника</p>
+<div class="muted" contenteditable="true">Молодой разработчик, увлечённый написанием надёжных и быстрых решений на Go. Ищу стажировку или проект для прокачки бэкенд-навыков.</div>
+</div>
+<div class="contact">
+<div contenteditable="true">gnevnov216@gmail.com</div>
+<div contenteditable="true">+7 (999) 123-45-67</div>
+<div contenteditable="true">Санкт-Петербург</div>
+<div contenteditable="true">github.com/mugshooter</div>
+</div>
+</header>
+
+<div class="grid">
+<main>
+<section class="section">
+<h2>Образование</h2>
+<div><b>РГПУ им. Герцена</b> — Бакалавр, <font color="#6b7280">Информатика и вычислительная техника</font><br/>
+<span class="muted">Сентябрь 2022 — настоящее время</span>
+  <ul>
+    <li>Ключевые предметы: Программирование, Базы данных.</li>
+    <li>Средний балл: 4.8</li>
+    <li><b>Темы курсовых работ:</b>
+      <ul>
+        <li>«Вычислительный эксперимент по исследованию движения тела по наклонной плоскости»</li>
+        <li>«Синтез речи»</li>
+        <li>«Корреляционный анализ характеристик автомобилей и их цены в Knime»</li>
+        <li>«Разработка веб-портфолио студента с использованием современных фронтенд-технологий»</li>
+      </ul>
+    </li>
+    <li><b>Тема дипломной работы:</b> «Разработка AI-сервиса техподдержки»</li>
+  </ul>
+</div>
+</section>
+
+<section class="section">
+<h2>Проекты</h2>
+<ul>
+  <li><b>AI Support Service (Go, gRPC, Docker, OpenAI API)</b> — дипломный проект.
+    Микросервис техподдержки с ИИ-помощником, выполняющим классификацию обращений и генерацию ответов. 
+    Включает REST/gRPC API, авторизацию JWT и интеграцию с LLM-моделью.</li>
+
+  <li><b>Go Task Manager API</b> — CRUD-сервис для управления задачами (Gin, PostgreSQL, Swagger).
+    Реализованы аутентификация, пагинация и логирование запросов.</li>
+
+  <li><b>Weather Bot</b> — Telegram-бот для уведомлений о погоде (Python + OpenWeather API). </li>
+</ul>
+</section>
+
+<section class="section">
+<h2>Опыт / Практика</h2>
+<div>
+  <b>Учебная практика</b> — <font color="#6b7280">Разработчик-стажёр (Go)</font><br/>
+  <span class="muted">Июнь 2024 — Август 2024</span>
+  <ul>
+    <li>Разрабатывал микросервис для обработки обращений клиентов.</li>
+    <li>Реализовал REST API с использованием Gin и GORM.</li>
+    <li>Добавил кеширование ответов через Redis и интеграцию с внешним AI API.</li>
+    <li>Настроил контейнеризацию (Docker) и CI/CD-pipeline через GitHub Actions.</li>
+  </ul>
+</div>
+</section>
+
+<section class="section">
+<h2>Дополнительно</h2>
+<ul>
+<li>Активно изучаю микросервисную архитектуру</li>
+<li>Повышенная стипендия за академическую успеваемость</li>
+<li>Активно изучаю паттерны проектирования и параллелизм в Go</li>
+</ul>
+</section>
+</main>
+
+<aside>
+<section class="section">
+<h2>Навыки</h2>
+<div class="skill"><div>Go</div><div class="bar"><i style="width:85%"></i></div></div>
+<div class="skill"><div>Python</div><div class="bar"><i style="width:70%"></i></div></div>
+<div class="skill"><div>gRPC / REST API</div><div class="bar"><i style="width:80%"></i></div></div>
+<div class="skill"><div>Docker / GitHub Actions</div><div class="bar"><i style="width:70%"></i></div></div>
+<div class="skill"><div>PostgreSQL / Redis</div><div class="bar"><i style="width:65%"></i></div></div>
+<div class="skill"><div>AI API Integration</div><div class="bar"><i style="width:60%"></i></div></div>
+</section>
+
+<section class="section">
+<h2>Языки</h2>
+<div class="pill">Русский — родной</div>
+<div class="pill">Английский — B1</div>
+</section>
+
+<section class="section">
+<h2>Интересы</h2>
+<div class="muted">Go-разработка, backend, микросервисы, распределённые системы</div>
+</section>
+</aside>
+</div>
+
+<div style="display:flex;gap:10px;margin-top:18px;align-items:center">
+<button class="print-btn" onclick="window.print()">Печать / Сохранить в PDF</button>
+</div>
+<footer>Нажмите "Печать", чтобы сохранить в PDF</footer>
+</div>
+</div>
+</body>
+</html>

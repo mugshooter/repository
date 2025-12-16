@@ -1,0 +1,29 @@
+> # Демонстрация переводов натуральных чисел в
+> # системы счисления с основаниями 2, 8, 16
+> # ****************************************
+> convert(34, bin); 
+> convert(34, octal); 
+> convert(34, hex);
+> 
+# ---------------------------------------------------------------------
+> a := "00fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f";
+> n := convert(a, decimal, hex);
+> convert(n, `hex`);
+> length(n);
+> # ------------------------------------------------------------
+> n1 := convert(n,                        `binary`); length(n1);
+> n1 := convert(n - 2^256,                `binary`); length(n1);
+> n2 := convert(n - (2^256 - 2^32),       `binary`); length(n2);
+> n3 := convert(n - (2^256 - 2^32 - 2^9), `binary`); length(n3);
+> # ------------------------------------------------------------
+> r  := n - (2^256 - 2^32 - 2^9 - 2^8 - 2^7 - 2^6 - 2^4 - 1);
+> # ------------------------------------------------------------
+> n1 := convert("00e3dafae910cade323000935fafaee6f892434c4b5d53837d8cbc8df0a43a289b0e9c5f1f0265970367ea30aa9213005c666b7dc78d3966fbc32aa731ccf32fa5",
+>                           decimal, hex);
+> n2 := convert("00d7f1f27ea10977420db9ffc484eeece0c6ebfcc6f2c4e240e7ece4dce38b2c3c39322c5b6c17eafd9318affa3e5ee03f6caf26892c82c47c6891a0b3b0c76ae5", 
+>                           decimal, hex);
+> n1*n2;
+> n3 := convert("00c03441b5a8d024d2588459cb78f3329c706f6092d730fff54eb84ee7a053567fddec07de945d84619773de03aee48dd97dd84e47d64ed68d49ed17a8a96168182773112b744152e359a5c7f7212023223706b2f5395c4aeb83defc4f514511e0cb7c12c4a4c42cb4f7c5d44420dfd106ef0697854eb8b80ec34620938086f099",
+>                           decimal, hex);
+> evalf(n3 = n1*n2);
+> #

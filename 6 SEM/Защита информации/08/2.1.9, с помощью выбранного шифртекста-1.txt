@@ -1,0 +1,40 @@
+> with(numtheory);               # Подключаем пакет для работы с теорией чисел
+> with(RandomTools);             # Подключаем пакет для генерации случайных чисел
+
+> p := nextprime(Generate(integer(range = 3 .. 10^10)));    # Генерируем простое p
+> q := nextprime(Generate(integer(range = 3 .. 10^10)));    # Генерируем простое q
+
+> n := p * q;                    # Вычисляем модуль n = p·q
+> phN := (p - 1) * (q - 1);      # Вычисляем φ(n)
+
+> e := nextprime(Generate(integer(range = 3 .. 10^10)));    # Генерируем публичную экспоненту e
+> while igcd(e, phN) <> 1 do     # Проверяем, что gcd(e, φ(n)) = 1
+>     e := nextprime(Generate(integer(range = 3 .. 10^10)));
+> end do;
+
+> e;                             # Выводим найденное значение e
+
+> d := 'd';                      # Объявляем символическую переменную d
+> s := msolve(d*e = 1, phN);     # Решаем уравнение d·e ≡ 1 mod φ(n)
+> assign(s);                     # Присваиваем найденное значение d
+
+> d;                             # Выводим рассчитанное d
+
+> m := Generate(integer(range = 3 .. 10^10)) mod n;  # Генерируем сообщение m < n
+
+> c := (m &^ e) mod n;           # Шифруем: c = m^e mod n
+
+> r := Generate(integer(range = 3 .. 10^10)) mod n;  # Генерируем случайное r < n
+> x := (r &^ e) mod n;           # Вычисваем x = r^e mod n
+
+> y := x * c mod n;              # Формируем y = x·c mod n
+
+> t := 1/r mod n;                # Вычисляем обратный к r по модулю n
+
+> U := (y &^ d) mod n;           # Расшифровываем y: U = y^d mod n
+
+> m1 := t * U mod n;             # Восстанавливаем сообщение: m1 = t·U mod n
+
+> m1 - m;                        # Проверяем: m1 должно равняться исходному m
+
+> NULL;

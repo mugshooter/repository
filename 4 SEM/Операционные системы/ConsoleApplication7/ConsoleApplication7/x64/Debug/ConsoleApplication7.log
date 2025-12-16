@@ -1,0 +1,5 @@
+﻿  ConsoleApplication7.cpp
+C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication7\ConsoleApplication7\ConsoleApplication7.cpp(6,31): error C2440: инициализация: невозможно преобразовать "const char [11]" в "char *"
+  C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication7\ConsoleApplication7\ConsoleApplication7.cpp(6,31):
+  При преобразовании из строкового литерала теряется квалификатор (см. /Zc:strictStrings)
+  

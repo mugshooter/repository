@@ -1,0 +1,12 @@
+> #  Возведение в степень (a^x mod m)
+> func := proc(a,x,m):
+>     if x = 0 then 1
+>     elif x mod 2 = 0 then func(a^2 mod m, x/2, m)
+>     else (a * func(a^2 mod m, (x-1)/2, m)) mod m
+> end if
+> end proc;
+> with(RandomTools):
+> a := Generate(integer(range=3..10^7));
+> x := Generate(integer(range=3..10^7));
+> m := Generate(integer(range=3..10^5));
+> func(a,x,m) - (a^x mod m) = 0;

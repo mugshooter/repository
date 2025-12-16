@@ -1,0 +1,21 @@
+> with(numtheory):
+> k1:=msolve(7*x1=3,11): assign(k1); x1: 
+> k2:=msolve(3*x2=1, 7): assign(k2); x2: 
+> k3:=msolve(3*x3=2, 5): assign(k3); x3:
+> res:=(chrem([x1,x2,x3],[11,7,5])) mod (11*7*5);
+> #
+> # Решение по шагам...
+> #
+> M := 11*5*7: M1:=M/11: M2:=M/7: M3:=M/5:
+> a1:=`mod`(3*7^(-1),11); a2:=`mod`(1*3^(-1),7); a3:=`mod`(2*3^(-1),5);
+> t1:=msolve(M1*y1 = 1, 11): assign(t1); y1: 
+> t2:=msolve(M2*y2 = 1, 7):  assign(t2); y2: 
+> t3:=msolve(M3*y3 = 1, 5):  assign(t3); y3: 
+> res1:=`mod`(a1*M1*y1 + a2*M2*y2 + a3*M3*y3, M);
+> #
+                                     299
+                                      2
+                                      5
+                                      4
+                                     299
+> 

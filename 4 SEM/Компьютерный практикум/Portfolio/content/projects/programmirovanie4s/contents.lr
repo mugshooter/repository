@@ -1,0 +1,43 @@
+_model: page
+---
+title:
+
+Программирование(4с)
+
+---
+body:
+
+ <a href="https://replit.com/@gnevnov1996/Laboratornaia-rabota1#main.py/">
+          <button class="btn btn-primary">ЛР№1</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/Laboratornaia-rabota2">
+          <button class="btn btn-primary">ЛР№2</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/Laboratornaia-rabota-3">
+          <button class="btn btn-primary">ЛР№3-4</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/Laboratornaia-rabota5">
+          <button class="btn btn-primary">ЛР№5</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/Suvorov-Roman-Gnievnov-Artiem-Adamienko-SS-IVT-21-PROG-lr6?v=1#main.py">
+          <button class="btn btn-primary">ЛР№6</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/Laboratornaia-rabota7-1">
+          <button class="btn btn-primary">ЛР№7</button> 
+    </a>
+ <a href="https://replit.com/@gnevnov1996/Laboratornaia-rabota8">
+          <button class="btn btn-primary">ЛР№8</button> 
+    </a>
+<br><br>
+ <a href="https://replit.com/@tot-kogho-siest/Suvorov-Roman-Gnievnov-Artiem-PROG4-LR-9#1.A.G..md">
+          <button class="btn btn-primary">ЛР№9.1</button> 
+    </a>
+ <a href="https://replit.com/@tot-kogho-siest/Suvorov-Roman-Gnievnov-Artiem-PROG4-LR-9#2.md">
+          <button class="btn btn-primary">ЛР№9.2</button> 
+    </a>
+ <a href="https://github.com/fuquyoma/LR-10">
+          <button class="btn btn-primary">ЛР№10</button> 
+    </a>
+ <a href="https://github.com/fuquyoma/LR-11">
+          <button class="btn btn-primary">ЛР№11</button> 
+    </a>

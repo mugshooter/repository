@@ -1,0 +1,45 @@
+> with(numtheory);             # Подключаем пакет для теории чисел (phi, ifactors и др.)
+> with(RandomTools);           # Подключаем пакет для генерации случайных чисел
+
+> p := nextprime(Generate(integer(range = 3 .. 10^3)));  
+                              # Генерируем случайное целое в [3..10^3] и берём следующее простое → p
+> q := nextprime(Generate(integer(range = 3 .. 10^3)));  
+                              # Аналогично генерируем второе простое → q
+
+> p*q;                         # Вычисляем модуль n = p·q (выводится в интерактивном режиме)
+
+> phN := (p - 1)*(q - 1);      # Вычисляем φ(n) = (p−1)(q−1)
+
+> e := nextprime(Generate(integer(range = 3 .. 10^2)));  
+                              # Генерируем случайное целое в [3..10^2] и берём следующее простое → e
+> while igcd(e, phN) <> 1 do    # Убеждаемся, что gcd(e, φ(n)) = 1
+>     e := nextprime(Generate(integer(range = 3 .. 10^2)));  
+                              # Если нет — генерируем новое e
+> end do;
+
+> e;                           # Вывод итогового значения публичной экспоненты e
+
+> m := Generate(integer(range = 3 .. 10^10)) mod p*q;  
+                              # Генерируем случайное сообщение m < n
+
+> c := (m &^ e) mod p*q;       # Шифруем сообщение: c = m^e mod n
+
+> a := -1;                     # Инициализация переменной для сравнения
+> k := 1;                      # Начальная степень-итератор для поиска
+> ek := e;                     # Переменная для хранения e^k
+
+> while a <> c do              # Пока не найдём k, при котором расшифровка возвращает исход c
+>     ek := e^k;               # Вычисваем e^k
+>     a := (c &^ ek) mod p*q;  # Проверяем, если c^(e^k) mod n совпадёт с c
+>     k := k + 1;              # Увеличиваем k
+> end do;
+
+> ek := ek / e;                # Поскольку на последнем шаге ek = e^k, делим на e, чтобы получить e^(k−1)
+> m1 := (c &^ ek) mod p*q;     # Дешифровка: m1 = c^(e^(k−1)) mod n
+> m1 - m;                      # Проверка: разность должна быть 0 (восстановленное m1 = исходному m)
+
+Warning, if e is meant to be the exponential e, use command/symbol completion or palettes to enter this special symbol, or use the exp function
+Warning, if e is meant to be the exponential e, use command/symbol completion or palettes to enter this special symbol, or use the exp function
+Warning, if e is meant to be the exponential e, use command/symbol completion or palettes to enter this special symbol, or use the exp function
+
+> NULL;                        # Завершаем выполнение без ошибок

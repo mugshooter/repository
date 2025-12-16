@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Предсказание качества вина</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 800px; }
+        .wine-form { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+        .result { margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Предсказание качества вина</h1>
+        
+        <div class="wine-form">
+            <form id="prediction-form">
+                <div class="row">
+                    {% for feature in features %}
+                    <div class="col-md-6 mb-3">
+                        <label for="{{ feature }}" class="form-label">
+                            {{ feature | capitalize }}
+                        </label>
+                        <input type="number" step="0.01" class="form-control" 
+                               id="{{ feature }}" name="{{ feature }}" required>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-100 mt-3">
+                    Предсказать качество
+                </button>
+            </form>
+            
+            <div class="result alert alert-success mt-4 d-none" id="result">
+                <h4 class="alert-heading">Результат предсказания</h4>
+                <p>Качество вина: <strong><span id="prediction-value"></span>/10</strong></p>
+                <hr>
+                <p class="mb-0">Введенные параметры:</p>
+                <pre id="features-detail" class="mb-0"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('prediction-form').addEventListener('submit', async function(event) {
+        event.preventDefault(); // отмена стандартного поведения формы
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        try {
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                document.getElementById('prediction-value').textContent = result.prediction;
+
+                const detail = Object.entries(result.features)
+                    .map(([key, val]) => `${key}: ${val}`)
+                    .join('\n');
+                document.getElementById('features-detail').textContent = detail;
+
+                document.getElementById('result').classList.remove('d-none');
+                document.getElementById('result').classList.remove('alert-danger');
+                document.getElementById('result').classList.add('alert-success');
+            } else {
+                throw new Error(result.message || 'Ошибка предсказания');
+            }
+
+        } catch (error) {
+            document.getElementById('result').classList.remove('d-none');
+            document.getElementById('result').classList.remove('alert-success');
+            document.getElementById('result').classList.add('alert-danger');
+            document.getElementById('prediction-value').textContent = '';
+            document.getElementById('features-detail').textContent = `Ошибка: ${error.message}`;
+        }
+    });
+    </script>
+</body>
+</html>

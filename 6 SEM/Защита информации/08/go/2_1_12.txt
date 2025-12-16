@@ -1,0 +1,50 @@
+> # Домашняя работа атаки, задание 2.1.12
+> #
+>
+> # Атака с помощью выбранного
+> # шифртекста-4
+> #
+> # Васильева Е.Д. 
+> 
+> # построение стандартной схемы RSA для Алисы
+> 
+> with(numtheory):
+> with(RandomTools):
+> 
+> p:= nextprime(Generate(integer(range=3..10^15)));
+> q:= nextprime(Generate(integer(range=3..10^15)));
+> n:=p*q;
+> phn:=(p-1)*(q-1);
+> 
+> e:= nextprime(Generate(integer(range=3..10^15))):
+> while (igcd(e, phn)<>1) do
+> e:= nextprime(Generate(integer(range=3..10^15))) end do:
+> e;
+> 
+> d:='d': s:=msolve(d*e=1, phn): assign(s): d:=d;
+1
+> # генерация сообщения и его шифрование открытым ключом Алисы
+> 
+> m:= Generate(integer(range=3..10^10)) mod n;
+> 
+> c:= m&^e mod n;
+> 
+> # Ева выбирает случайное число r и вычисляет m1
+> 
+> r:= Generate(integer(range=3..100)) mod n;
+> 
+> m1:= ((c mod n)*(r&^e mod n)) mod n;
+> 
+> # Ева отправляет m1 Алисе, и Алиса вычисляет
+> 
+> c1:= m1&^d mod n;
+> 
+> # если Ева получит с1, то она может вычислить
+> 
+> rn:='rn': s:=msolve(rn*r=1, n): assign(s): rn:=rn;
+
+> m2:= (rn*c1) mod n;
+> 
+> # Проверка
+> 
+> m2-m;

@@ -1,0 +1,38 @@
+> # Домашняя работа атаки
+> 
+> # Атака методом неподвижной точки
+> 
+> #  Васильева Е.Д, 2.1 
+> # Задание начальных условий: открытый ключ пользователя и шифротекст
+> 
+> with(numtheory):
+> with(RandomTools):
+> 
+>  p:= nextprime(Generate(integer(range=3..10^3)));
+>  q:= nextprime(Generate(integer(range=3..10^3)));
+>  p*q;
+>  phN:= (p-1)*(q-1);
+>  nextprime(Generate(integer(range=3..10^2))):
+>  while (igcd(e, phN)<>1) do
+>  e:= nextprime(Generate(integer(range=3..10^2))) end do:
+>  e;
+> 
+>  Generate(integer(range=3..10^10)) mod n;
+> 
+> c:= m&^e mod n;
+> 
+> a:= -1;
+> k:= 1;
+> ek:=e;
+
+> while (a<>c) do
+> ek:=e^k;
+> a:=c&^ek mod n:
+> k:=k+1:
+> end do:
+> 
+> ek:=ek/e;
+
+> m1:=c&^ek mod n;
+> 
+> m1-m;
