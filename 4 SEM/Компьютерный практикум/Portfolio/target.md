@@ -1,1 +1,0 @@
-target = ghpages+https://fuquyoma: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@fuquyoma/fuquyoma.github.io
