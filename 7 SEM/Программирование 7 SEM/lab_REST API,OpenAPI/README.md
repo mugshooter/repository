@@ -14,8 +14,7 @@
    pip install fastapi uvicorn pydantic
 2. **Запустите сервер:**
 
-    ```Bash
-
+    ```bash
     uvicorn main:app --reload
     ```
     Параметр --reload позволяет серверу автоматически перезагружаться при изменении кода.
