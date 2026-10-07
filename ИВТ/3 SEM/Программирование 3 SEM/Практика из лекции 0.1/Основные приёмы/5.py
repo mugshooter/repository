@@ -1,0 +1,5 @@
+a, b = int(input()), int(input())
+print('Число а в степени b =', a ** b)
+print('Произведение a * b =', a * b)
+print('Сумма a + b =', a + b)
+print('Разница a - b =', a - b)

@@ -1,0 +1,20 @@
+[
+  {
+    "datetime": "2024-03-02 18:09:39",
+    "func_name": "f2()",
+    "params": [
+      "GOTOVO"
+    ],
+    "result": "OVOTOG"
+  }
+]
+[
+  {
+    "datetime": "2024-03-02 18:09:42",
+    "func_name": "f2()",
+    "params": [
+      "GOTOVO"
+    ],
+    "result": "OVOTOG"
+  }
+]

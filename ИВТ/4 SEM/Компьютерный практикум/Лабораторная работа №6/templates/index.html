@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <style>
+        #result {
+            margin-top: 20px;
+        }
+        #imageContainer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!--Разметка для загрузки изображения-->
+    <h1>Upload Image</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="image" id="imageInput" accept="image/png">
+        <button type="button" id="uploadButton">Загрузить</button>
+    </form>
+    <!--Элементы для отображения информации об изображении-->
+    <div id="result"></div>
+    <div id="imageContainer"></div>
+    <!--JavaScript для отправки изображения на сервер и отображения информации-->
+    <script>
+        document.getElementById('uploadButton').addEventListener('click', function() {
+            var formData = new FormData();
+            formData.append('image', document.getElementById('imageInput').files[0]);
+
+            fetch('/size2json', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = 'Width: ' + data.width + ', Height: ' + data.height;
+                displayImage();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
+        function displayImage() {
+            var img = document.createElement('img');
+            img.src = URL.createObjectURL(document.getElementById('imageInput').files[0]);
+            img.onload = function() {
+                URL.revokeObjectURL(this.src);
+            };
+            document.getElementById('imageContainer').innerHTML = '';
+            document.getElementById('imageContainer').appendChild(img);
+        }
+    </script>
+</body>
+</html>

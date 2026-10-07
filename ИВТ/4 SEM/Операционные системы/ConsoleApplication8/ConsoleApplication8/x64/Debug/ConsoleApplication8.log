@@ -1,0 +1,17 @@
+﻿  ConsoleApplication8.cpp
+C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication8\ConsoleApplication8\ConsoleApplication8.cpp(31,23): error C2664: "HANDLE CreateSemaphoreW(LPSECURITY_ATTRIBUTES,LONG,LONG,LPCWSTR)": невозможно преобразовать аргумент 4 из "const char [17]" в "LPCWSTR"
+  C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication8\ConsoleApplication8\ConsoleApplication8.cpp(31,51):
+  Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции в круглых скобках
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\synchapi.h(748,1):
+   см. объявление "CreateSemaphoreW"
+  C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication8\ConsoleApplication8\ConsoleApplication8.cpp(31,23):
+  при попытке сопоставить список аргументов "(int, int, int, const char [17])"
+  
+C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication8\ConsoleApplication8\ConsoleApplication8.cpp(32,24): error C2664: "HANDLE CreateSemaphoreW(LPSECURITY_ATTRIBUTES,LONG,LONG,LPCWSTR)": невозможно преобразовать аргумент 4 из "const char [18]" в "LPCWSTR"
+  C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication8\ConsoleApplication8\ConsoleApplication8.cpp(32,52):
+  Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции в круглых скобках
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\synchapi.h(748,1):
+   см. объявление "CreateSemaphoreW"
+  C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication8\ConsoleApplication8\ConsoleApplication8.cpp(32,24):
+  при попытке сопоставить список аргументов "(int, int, int, const char [18])"
+  

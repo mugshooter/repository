@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="card box-shadow m-2 from-w">
+            <a href="/">
+                <button class="btn btn-primary">Назад</button>
+            </a>
+            <div class="card-header text-center">
+                <h3> Погода </h3>
+            </div>
+
+            <form id="form" class="p-3" action='' method="POST">
+                {% csrf_token %}
+                <div class="form-row"> <!--бокс с данными-->
+                    <div class="form-group col-md-4 mb-0">
+                        <label for="met">Город:</label>
+                        <select class="form-control" id="met" name="cities" value="{{ cit }}">
+                            {% for curr in cities %}
+                                <option value="{{ curr }}" {% if cit == curr %}selected{% endif %}>{{ curr }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                <hr>
+                <br>
+                {% if ans %}
+                    <div class="card col-6 p-0 m-auto">
+                        <div class="card-header text-center">
+                        <div class="card-body">
+                            <br>Ответ:
+                            <div id="ans-text" class="scrollable-list">
+                                {{ ans }}
+                            </div>
+                            
+                            
+                        </div>
+                        
+
+                    </div>
+                {% endif %}
+
+                <div class="submit-btn mt-3">
+                    <button name="sub" id="conv" type="submit" class="btn btn-primary">  Вывести  </button>
+                </div>
+                </br>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

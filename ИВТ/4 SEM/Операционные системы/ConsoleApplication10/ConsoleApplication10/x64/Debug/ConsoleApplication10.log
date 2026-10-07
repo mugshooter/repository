@@ -1,0 +1,18 @@
+﻿  ConsoleApplication10.cpp
+C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication10\ConsoleApplication10\ConsoleApplication10.cpp(11,13): error C2664: "HANDLE CreateFileW(LPCWSTR,DWORD,DWORD,LPSECURITY_ATTRIBUTES,DWORD,DWORD,HANDLE)": невозможно преобразовать аргумент 1 из "const char [11]" в "LPCWSTR"
+  C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication10\ConsoleApplication10\ConsoleApplication10.cpp(11,24):
+  Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции в круглых скобках
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\fileapi.h(92,1):
+   см. объявление "CreateFileW"
+  C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication10\ConsoleApplication10\ConsoleApplication10.cpp(11,13):
+  при попытке сопоставить список аргументов "(const char [11], unsigned long, int, int, int, int, int)"
+  
+C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication10\ConsoleApplication10\ConsoleApplication10.cpp(25,16): error C2664: "HANDLE CreateFileMappingW(HANDLE,LPSECURITY_ATTRIBUTES,DWORD,DWORD,DWORD,LPCWSTR)": невозможно преобразовать аргумент 6 из "const char [13]" в "LPCWSTR"
+  C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication10\ConsoleApplication10\ConsoleApplication10.cpp(29,9):
+  Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции в круглых скобках
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\memoryapi.h(176,1):
+   см. объявление "CreateFileMappingW"
+  C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication10\ConsoleApplication10\ConsoleApplication10.cpp(25,16):
+  при попытке сопоставить список аргументов "(HANDLE, int, int, int, int, const char [13])"
+  
+C:\Users\gnevn\OneDrive\Рабочий стол\учеба\РГПУ\Операционные системы\ConsoleApplication10\ConsoleApplication10\ConsoleApplication10.cpp(53,5): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
